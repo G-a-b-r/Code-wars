@@ -1,0 +1,348 @@
+/* ======================== */
+/*          BODY            */
+/* ======================== */
+/* Основни настройки за цялата страница */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #061052;
+    color: #E6E9FF;
+    padding-top: 80px; /* място за фиксирания navbar */
+}
+
+
+/* ======================== */
+/*          NAVBAR          */
+/* ======================== */
+/* Основен контейнер на навигацията */
+.navbar {
+    background: #000333;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+/* Текст и подравняване на логото */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Снимка на логото */
+.navbar-logo img {
+    width: 48px;
+    height: auto;
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite;
+    pointer-events: none; /* не позволява селектиране */
+}
+
+/* Анимация за леко уголемяване и смаляване */
+@keyframes float {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* Контейнер за навигационните линкове */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-right: 50px;
+}
+
+/* Стил на линковете */
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Анимирана линия под линковете */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Показване на линията при hover */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Бутон за мобилно меню */
+.navbar-toggle {
+    display: none;
+    background: #ffffff;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    z-index: 10001;
+    margin-right: 50px;
+}
+
+/* Трите черти на hamburger бутона */
+.navbar-toggle::before,
+.navbar-toggle::after,
+.navbar-toggle span {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: #00fff2;
+    margin: 4px 0;
+}
+
+
+/* ======================== */
+/*        MOBILE MENU       */
+/* ======================== */
+/* Контейнер за мобилната навигация */
+#mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #021042;
+    padding: 10px 20px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 8px 0;
+    color: #E6E9FF;
+}
+
+/* Hover ефект за мобилни линкове */
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+
+/* ======================== */
+/*      MEMBER SECTION      */
+/* ======================== */
+/* Основна секция за член */
+.member-section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #E6E9FF;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Заглавие на секцията */
+.member-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #C98CFF;
+    margin-bottom: 40px;
+    text-shadow: 
+        0 0 10px #C98CFF,
+        0 0 20px #00EFFF,
+        0 0 30px #FF6F61;
+    animation: neonPulse 2s infinite alternate;
+}
+
+/* Анимация за неонов ефект */
+@keyframes neonPulse {
+    0% {
+        text-shadow: 0 0 10px #C98CFF, 0 0 20px #00EFFF, 0 0 30px #FF6F61;
+    }
+    50% {
+        text-shadow: 0 0 20px #C98CFF, 0 0 30px #00EFFF, 0 0 40px #FF6F61;
+    }
+    100% {
+        text-shadow: 0 0 10px #C98CFF, 0 0 20px #00EFFF, 0 0 30px #FF6F61;
+    }
+}
+
+/* Контейнер за снимка + информация */
+.member-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Контейнер за снимката */
+.member-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Z-index защита */
+.member-photo,
+.member-photo img,
+.member-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Снимка на члена */
+.member-photo img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid #00EFFF;
+    box-shadow: 0 0 30px #00EFFF, 0 0 60px #C98CFF;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект на снимката */
+.member-photo img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px #00EFFF, 0 0 80px #C98CFF;
+}
+
+/* Информационен правоъгълник */
+.member-info-rectangle {
+    background: linear-gradient(145deg, #0b1140, #0d1560);
+    border: 2px solid #C98CFF;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 0 0 30px rgba(201, 140, 255, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект за информационния блок */
+.member-info-rectangle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 50px #00EFFF, 0 0 80px #C98CFF;
+}
+
+/* Роля на члена */
+.member-info-rectangle .role {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #00fff2;
+    margin-bottom: 15px;
+}
+
+/* Текст в информацията */
+.member-info-rectangle p {
+    font-size: 16px;
+    color: #dcdcdc;
+    margin-bottom: 15px;
+}
+
+/* Контейнер за мисиите */
+.mission-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+/* Отделна мисия */
+.mission-card {
+    background: linear-gradient(135deg, #0b1140, #0d1560);
+    border: 1px solid #C98CFF;
+    border-radius: 15px;
+    padding: 10px 15px;
+    box-shadow: 0 0 20px rgba(201, 140, 255, 0.5);
+    font-size: 0.95rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект на мисия */
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px #00EFFF, 0 0 50px #C98CFF;
+}
+
+/* Бутон */
+.member-info-rectangle .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #00EFFF;
+    color: #000033;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00EFFF;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+/* Hover ефект на бутона */
+.member-info-rectangle .btn:hover {
+    background-color: #C98CFF;
+    color: #fff;
+    box-shadow: 0 0 40px #C98CFF, 0 0 60px #00EFFF;
+}
+
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+@media (max-width: 1024px) {
+    .member-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+        margin-right: 50px;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .member-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-info-rectangle {
+        text-align: center;
+    }
+
+    .mission-cards {
+        justify-content: center;
+    }
+}
+
+/* По-голямо лого при малки екрани */
+.navbar-logo img {
+    width: 55px;
+    height: auto;
+}

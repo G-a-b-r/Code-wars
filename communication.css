@@ -1,0 +1,315 @@
+/* ======================== */
+/*          BODY            */
+/* ======================== */
+/* Основни стилове за цялата страница */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #061052;
+    color: #E6E9FF;
+}
+
+
+/* ======================== */
+/*          NAVBAR          */
+/* ======================== */
+/* Основен контейнер на навигацията */
+.navbar {
+    background: #000333;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Лого + текст */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Лого изображение */
+.navbar-logo img {
+    width: 8%;
+    height: 8%;
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+/* ======================== */
+/*        LOGO ANIMATION    */
+/* ======================== */
+/* Плавно уголемяване и смаляване */
+@keyframes float {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+
+/* ======================== */
+/*     NAVBAR LINKS         */
+/* ======================== */
+/* Линкове в навигацията */
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Подчертаване при hover */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/* ======================== */
+/*     NAVBAR TOGGLE        */
+/* ======================== */
+/* Бутон за мобилно меню */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00EFFF;
+}
+
+
+/* ======================== */
+/*        MOBILE MENU       */
+/* ======================== */
+/* Контейнер за мобилната навигация */
+#mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #021042;
+    padding: 10px 20px;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 10px 0;
+    color: #E6E9FF;
+}
+
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+
+/* ======================== */
+/*          HERO            */
+/* ======================== */
+/* Заглавна секция */
+.hero {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Заглавие */
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #C98CFF;
+}
+
+
+/* ======================== */
+/*        СЕНЗОРИ           */
+/* ======================== */
+/* Контейнер за комуникационните сензори */
+.communication-sensors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+/* Карта на отделен сензор */
+.sensor {
+    flex: 1 1 30%;
+    min-width: 200px;
+    background: linear-gradient(145deg, #0d1560, #0b1140);
+    border: 2px solid #7D4BFF;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(125, 75, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект */
+.sensor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(125, 75, 255, 0.5);
+}
+
+/* Етикет */
+.sensor .label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Стойност */
+.sensor .value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00fff2;
+}
+
+
+/* ======================== */
+/*        PROGRESS BAR      */
+/* ======================== */
+/* Контейнер на прогрес бара */
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #1a1a1a;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 5px 0 10px 0;
+}
+
+/* Запълване */
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #00fff2;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+/* Таблет */
+@media (max-width: 800px) {
+    .sensor {
+        flex: 1 1 45%;
+    }
+}
+
+/* Телефон */
+@media (max-width: 500px) {
+    .sensor {
+        flex: 1 1 90%;
+    }
+}
+
+
+/* ======================== */
+/*      NAVBAR MOBILE       */
+/* ======================== */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 25px;
+    }
+
+    /* По-малко лого */
+    .navbar-logo img {
+        width: 45px;
+        height: auto;
+    }
+
+    /* Скриване на desktop линковете */
+    .navbar-links {
+        display: none;
+    }
+
+    /* Бутон ☰ */
+    .navbar-toggle {
+        display: block;
+        background: #ffffff;
+        color: #00fff2;
+        border: none;
+        padding: 6px 9px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        border-radius: 0;
+    }
+
+    /* Мобилно меню */
+    #mobile-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #021042;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        z-index: 999;
+    }
+
+    #mobile-menu a {
+        font-size: 1.2rem;
+        margin: 8px 0;
+        text-decoration: underline;
+        text-decoration-color: #ffffff;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+        color: #E6E9FF;
+    }
+
+    #mobile-menu a:hover {
+        color: #00fff2;
+    }
+}
+
+
+/* ======================== */
+/*      SMALL SCREENS       */
+/* ======================== */
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 1.9rem;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+
+    .hero {
+        margin-bottom: 55px;
+    }
+}
+
+@media (max-width: 400px) {
+    #mobile-menu a {
+        font-size: 1rem;
+    }
+}

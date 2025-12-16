@@ -1,0 +1,361 @@
+/* ================================================= */
+/*                     BODY                          */
+/* ================================================= */
+/* Основни глобални стилове за страницата */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #061052;
+    color: #E6E9FF;
+}
+
+
+/* ================================================= */
+/*                     NAVBAR                        */
+/* ================================================= */
+/* Основен контейнер на навигацията */
+.navbar {
+    background: #000333;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Лого и текст в навбара */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Лого изображение */
+.navbar-logo img {
+    width: 8%;
+    height: 8%;
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+/* ================================================= */
+/*                  LOGO ANIMATION                   */
+/* ================================================= */
+/* Анимация за леко уголемяване и смаляване */
+@keyframes float {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+
+/* ================================================= */
+/*               NAVBAR LINKS (DESKTOP)              */
+/* ================================================= */
+/* Линкове в навигацията */
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Анимирана линия под линковете */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Hover ефект за линковете */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/* ================================================= */
+/*               NAVBAR TOGGLE BUTTON                */
+/* ================================================= */
+/* Бутон ☰ за мобилна версия */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00EFFF;
+}
+
+
+/* ================================================= */
+/*                   MOBILE MENU                    */
+/* ================================================= */
+/* Контейнер на мобилното меню */
+#mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #021042;
+    padding: 10px 20px;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 10px 0;
+    color: #E6E9FF;
+}
+
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    width: 8%;
+    height: 8%;
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/* ================================================= */
+/*                     HERO                          */
+/* ================================================= */
+/* Заглавна секция */
+.hero {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #C98CFF;
+}
+
+
+/* ================================================= */
+/*                AI DASHBOARD                       */
+/* ================================================= */
+/* Контейнер за AI панелите */
+.ai-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Индивидуален AI панел */
+.ai-panel {
+    flex: 1 1 30%;
+    min-width: 250px;
+    background: linear-gradient(145deg, #0d1560, #0b1140);
+    border: 2px solid #7D4BFF;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(125, 75, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект */
+.ai-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(125, 75, 255, 0.5);
+}
+
+.ai-panel .label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.ai-panel .value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00fff2;
+}
+
+
+/* ================================================= */
+/*                 STATUS BAR                        */
+/* ================================================= */
+/* Фон на прогрес бара */
+.status-bar {
+    width: 100%;
+    height: 12px;
+    background: #1a1a1a;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 5px 0 10px 0;
+}
+
+/* Запълване на прогреса */
+.status-fill {
+    width: 0%;
+    height: 100%;
+    background: #00fff2;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+
+/* ================================================= */
+/*                 RESPONSIVE                        */
+/* ================================================= */
+@media (max-width: 800px) {
+    .ai-panel { flex: 1 1 45%; }
+}
+
+@media (max-width: 500px) {
+    .ai-panel { flex: 1 1 90%; }
+}
+
+
+/* ================================================= */
+/*             NAVBAR MOBILE VERSION                 */
+/* ================================================= */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 25px;
+    }
+
+    .navbar-logo img {
+        width: 45px;
+        height: auto;
+    }
+
+    /* Скриване на desktop линковете */
+    .navbar-links {
+        display: none;
+    }
+
+    /* ☰ бутон */
+    .navbar-toggle {
+        display: block;
+        background: #ffffff;
+        color: #00fff2;
+        border: none;
+        padding: 6px 9px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        border-radius: 0;
+    }
+
+    /* Мобилно меню */
+    #mobile-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #021042;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        z-index: 999;
+    }
+
+    #mobile-menu a {
+        font-size: 1.2rem;
+        margin: 8px 0;
+        color: #E6E9FF;
+        text-decoration: underline;
+        text-decoration-color: #ffffff;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+    }
+
+    #mobile-menu a:hover {
+        color: #00fff2;
+    }
+
+    #mobile-menu a {
+        color: #ffffff;
+        font-size: 1.2rem;
+        margin: 12px 0;
+    }
+}
+
+
+/* ================================================= */
+/*             SMALL SCREENS                         */
+/* ================================================= */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 1.9rem;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+
+    .hero {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    #mobile-menu a {
+        font-size: 1rem;
+    }
+}

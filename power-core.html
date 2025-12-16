@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <!-- Основни мета настройки -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заглавие на страницата -->
+    <title>Енергийно ядро</title>
+
+    <!-- Външен CSS файл -->
+    <link rel="stylesheet" href="power-core.css">
+
+    <!-- Google шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <!-- Лого -->
+        <div class="navbar-logo">
+            <img src="logo2.png" alt="Лого Космомания">
+        </div>
+
+        <!-- Навигационни линкове (десктоп) -->
+        <nav class="navbar-links">
+            <a href="index.html">Начало</a>
+            <a href="team.html">Екипаж</a>
+            <a href="systems.html">Системи</a>
+            <a href="status.html">Статус на кораба</a>
+            <a href="contact.html">Контакт</a>
+        </nav>
+
+        <!-- Бутон за мобилно меню -->
+        <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <!-- ================= MOBILE MENU ================= -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html">Начало</a>
+        <a href="team.html">Екипаж</a>
+        <a href="systems.html">Системи</a>
+        <a href="status.html">Статус на кораба</a>
+        <a href="contact.html">Контакт</a>
+    </div>
+
+    <!-- ================= ЗАГЛАВИЕ ================= -->
+    <section class="hero">
+        <h1>Енергийно ядро</h1>
+    </section>
+
+    <!-- ================= ЕНЕРГИЙНО ЯДРО ================= -->
+    <section class="energy-core-section">
+        <div class="energy-core">
+
+            <!-- Център на ядрото -->
+            <div class="core-center"></div>
+
+            <!-- Въртящи се пръстени -->
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+
+        </div>
+    </section>
+
+    <!-- ================= СЕНЗОРИ ================= -->
+    <div class="energy-sensors">
+
+        <!-- Сензор: Ниво енергия -->
+        <div class="sensor">
+            <span class="label">Ниво енергия</span>
+            <span class="value" id="energyLevel">100%</span>
+        </div>
+
+        <!-- Сензор: Температура -->
+        <div class="sensor">
+            <span class="label">Температура ядро</span>
+            <span class="value" id="coreTemp">350°C</span>
+        </div>
+
+        <!-- Сензор: Налягане -->
+        <div class="sensor">
+            <span class="label">Налягане</span>
+            <span class="value" id="corePressure">1015 hPa</span>
+        </div>
+
+        <!-- Сензор: Стабилност -->
+        <div class="sensor">
+            <span class="label">Стабилност</span>
+            <span class="value" id="stability">Стабилно</span>
+        </div>
+
+        <!-- Сензор: Захранване -->
+        <div class="sensor">
+            <span class="label">Захранване системи</span>
+            <span class="value" id="systemPower">100%</span>
+        </div>
+
+        <!-- Сензор: Аларми -->
+        <div class="sensor">
+            <span class="label">Аларми</span>
+            <span class="value" id="coreAlerts">0</span>
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        /* Показване / скриване на мобилното меню */
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        /* Динамично обновяване на стойностите на сензорите */
+        function updateCoreSensors() {
+            document.getElementById('energyLevel').textContent =
+                Math.floor(Math.random() * 21 + 80) + '%';
+
+            document.getElementById('coreTemp').textContent =
+                Math.floor(Math.random() * 101 + 300) + '°C';
+
+            document.getElementById('corePressure').textContent =
+                Math.floor(Math.random() * 11 + 1005) + ' hPa';
+
+            document.getElementById('stability').textContent =
+                Math.random() > 0.1 ? 'Стабилно' : 'Нестабилно';
+
+            document.getElementById('systemPower').textContent =
+                Math.floor(Math.random() * 11 + 90) + '%';
+
+            document.getElementById('coreAlerts').textContent =
+                Math.floor(Math.random() * 3);
+        }
+
+        /* Обновяване на данните на всеки 2 секунди */
+        setInterval(updateCoreSensors, 2000);
+
+        /* Анимация на движеща се енергийна точка */
+        const dot = document.querySelector('.energy-dot');
+        const radius = 120;
+        const centerX = 150;
+        const centerY = 150;
+
+        let angle = Math.random() * 2 * Math.PI;
+        let speed = 0.01 + Math.random() * 0.02;
+
+        function moveDot() {
+            angle += speed;
+
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+
+            dot.style.left = x + 'px';
+            dot.style.top = y + 'px';
+
+            requestAnimationFrame(moveDot);
+        }
+
+        moveDot();
+    </script>
+
+</body>
+</html>

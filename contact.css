@@ -1,0 +1,279 @@
+/* ======================== */
+/*         BODY             */
+/* ======================== */
+/* Основни стилове за цялата страница */
+body {
+    margin: 0;                              /* премахва стандартния margin */
+    font-family: Arial, sans-serif;         /* основен шрифт */
+    background: #061052;                    /* тъмен космически фон */
+    color: #E6E9FF;                         /* светъл текст */
+}
+
+
+/* ======================== */
+/*         NAVBAR           */
+/* ======================== */
+/* Основен контейнер на навигацията */
+.navbar {
+    background: #000333;                    /* тъмен фон */
+    padding: 15px 25px;                     /* вътрешни отстояния */
+    display: flex;                          /* flex layout */
+    justify-content: space-between;         /* разпределение на елементите */
+    align-items: center;                    /* вертикално центриране */
+    position: sticky;                      /* залепва при скрол */
+    top: 0;
+    z-index: 1000;                          /* над останалото съдържание */
+}
+
+/* Контейнер за логото */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Лого изображение */
+.navbar-logo img {
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite,
+               zoom 4s ease-in-out infinite; /* комбинирани анимации */
+}
+
+
+/* ======================== */
+/*        ANIMATIONS        */
+/* ======================== */
+/* Вертикално „плуване“ */
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Леко увеличаване / намаляване */
+@keyframes zoom {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+/* ======================== */
+/*      NAVBAR LINKS        */
+/* ======================== */
+/* Стил за линковете */
+.navbar-links a {
+    position: relative;                     /* за псевдо-елемента */
+    color: #00fff2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Подчертаване при hover */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Анимация при hover */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Бутон за мобилно меню */
+.navbar-toggle {
+    display: none;                          /* скрит на desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00EFFF;
+}
+
+
+/* ======================== */
+/*        MOBILE MENU       */
+/* ======================== */
+/* Контейнер на мобилното меню */
+.mobile-menu {
+    position: fixed;
+    top: 70px;                              /* под navbar-а */
+    left: 0;
+    width: 100%;
+    display: none;                          /* показва се с JS */
+    flex-direction: column;
+    background: #021042;
+    padding: 20px;
+    z-index: 9999;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 8px 0;
+    color: #E6E9FF;
+}
+
+/* Hover ефект */
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+
+/* ======================== */
+/*        CONTACT SECTION   */
+/* ======================== */
+/* Основен контейнер */
+.contact-section {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Заглавие */
+.contact-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #C98CFF;
+    text-shadow: 0 0 10px rgba(201,140,255,0.7);
+}
+
+/* Панел с формата */
+.contact-panel {
+    background: linear-gradient(145deg, #0b1140, #0d1560);
+    border: 2px solid #7D4BFF;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(125, 75, 255, 0.3);
+}
+
+/* Формата */
+.contact-panel form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Етикети */
+.contact-panel label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input и textarea */
+.contact-panel input,
+.contact-panel textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background: #0d1560;
+    color: #E6E9FF;
+    outline: none;
+    resize: none;                          /* забранява ръчно разтягане */
+}
+
+/* Placeholder стил */
+.contact-panel input::placeholder,
+.contact-panel textarea::placeholder {
+    color: #B0B3FF;
+}
+
+/* Бутон */
+.contact-panel button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #7D4BFF;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Hover ефект */
+.contact-panel button:hover {
+    background: #935cff;
+    box-shadow: 0 0 15px rgba(125, 75, 255, 0.5);
+}
+
+
+/* ======================== */
+/*     SCROLLABLE TEXTAREA  */
+/* ======================== */
+/* Контейнер със скрит scrollbar */
+.textarea-container {
+    position: relative;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    scrollbar-width: none;                 /* Firefox */
+    -ms-overflow-style: none;              /* IE / Edge */
+}
+
+/* Скриване на scrollbar (WebKit) */
+.textarea-container::-webkit-scrollbar {
+    width: 0;
+}
+
+/* Стил при фокус */
+.textarea-container:has(textarea:focus) {
+    border-right-color: rgba(125,75,255,0.5);
+}
+
+/* Самата textarea */
+.textarea-container textarea {
+    width: 100%;
+    height: 150px;
+    background: #0d1560;
+    color: #E6E9FF;
+    border: none;
+    padding-right: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+/* Скриване на scrollbar */
+.textarea-container textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+/* Мобилен изглед */
+@media (max-width: 768px) {
+
+    .navbar-links {
+        display: none;                     /* скрива desktop менюто */
+    }
+
+    .navbar-toggle {
+        display: block;                    /* показва ☰ */
+    }
+
+    .navbar-logo img {
+        width: 50px;
+        height: auto;
+    }
+}

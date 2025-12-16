@@ -1,0 +1,428 @@
+/* ======================== */
+/*         BODY             */
+/* ======================== */
+/* Основни глобални стилове за страницата */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #061052;
+    color: #E6E9FF;
+}
+
+/* ======================== */
+/*         NAVBAR           */
+/* ======================== */
+/* Основна навигационна лента */
+.navbar {
+    background: #000333;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Контейнер за логото */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Изображение на логото + анимация */
+.navbar-logo img {
+    width: 8%;
+    height: 8%;
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Анимация за „пулсиране“ на логото */
+@keyframes float {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* Линкове в навигацията */
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Декоративна линия под линковете */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Анимация при hover */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ☰ бутон – показва се само на мобилни */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00EFFF;
+}
+
+/* ======================== */
+/*        MOBILE MENU       */
+/* ======================== */
+/* Контейнер за мобилното меню */
+#mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #021042;
+    padding: 10px 20px;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 10px 0;
+    color: #E6E9FF;
+}
+
+/* Hover ефект */
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+/* ======================== */
+/*          HERO            */
+/* ======================== */
+/* Заглавна секция */
+.hero {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: -30px;
+}
+
+/* Заглавие в hero секцията */
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #C98CFF;
+}
+
+/* ======================== */
+/*    ЕНЕРГИЙНО ЯДРО        */
+/* ======================== */
+/* Главен wrapper за ядрото и сензорите */
+.energy-core-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Карта на енергийното ядро */
+.energy-core-map {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle at center, #0b0b0b, #1a1a1a, #000);
+    border: 2px solid #00fff2;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* Мрежест overlay ефект */
+.energy-core-map::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+/* Централна точка (ядро) */
+.core-center {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px #ff0000;
+}
+
+/* Алтернативна карта (по-малка) */
+.core-map {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    background: radial-gradient(circle at center, #0b0b0b, #1a1a1a, #000);
+    border: 2px solid #00fff2;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0,255,255,0.3);
+    overflow: hidden;
+}
+
+/* Малък централен елемент */
+.core-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: #ff0000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px #ff0000;
+}
+
+/* Енергийни точки */
+.energy-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #00fff2;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00fff2;
+}
+
+/* Секция за заглавие и ядро */
+.energy-core-section {
+    text-align: center;
+    margin: 30px auto 0 auto;
+}
+
+/* Заглавие */
+.energy-core-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #C98CFF;
+    margin-bottom: 25px;
+}
+
+/* Контейнер за анимацията */
+.energy-core {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+/* Централно пулсиращо ядро */
+.core-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #00fff2 0%, #003366 80%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 30px #00fff2;
+    animation: pulse 2s infinite alternate;
+}
+
+/* Пулсираща анимация */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 20px #00fff2;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 40px #00fff2;
+    }
+}
+
+/* ======================== */
+/*     ВЪРТЯЩИ СЕ ПРЪСТЕНИ  */
+/* ======================== */
+/* Общ стил за пръстените */
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid #00fff2;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotateRing linear infinite;
+}
+
+/* Размери и скорости */
+.ring1 { width: 100px; height: 100px; animation-duration: 10s; }
+.ring2 { width: 150px; height: 150px; animation-duration: 15s; }
+.ring3 { width: 200px; height: 200px; animation-duration: 20s; }
+
+/* Въртене */
+@keyframes rotateRing {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ======================== */
+/*          СЕНЗОРИ         */
+/* ======================== */
+/* Контейнер за всички сензори */
+.energy-sensors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+/* Карта на отделен сензор */
+.sensor {
+    flex: 1 1 30%;
+    min-width: 200px;
+    background: linear-gradient(145deg, #0d1560, #0b1140);
+    border: 2px solid #7D4BFF;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(125, 75, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект */
+.sensor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(125, 75, 255, 0.5);
+}
+
+/* Етикет */
+.sensor .label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Стойност */
+.sensor .value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00fff2;
+}
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+@media (max-width: 800px) {
+    .sensor {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 500px) {
+    .sensor {
+        flex: 1 1 90%;
+    }
+
+    .energy-core-map {
+        width: 90%;
+        height: 300px;
+    }
+}
+
+/* ======================== */
+/*     NAVBAR – MOBILE      */
+/* ======================== */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 25px;
+    }
+
+    .navbar-logo img {
+        width: 45px;
+        height: auto;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    /* ☰ бутон */
+    .navbar-toggle {
+        display: block;
+        background: #fff;
+        color: #00fff2;
+        border: none;
+        padding: 6px 10px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        border-radius: 0;
+    }
+
+    /* Мобилно меню */
+    #mobile-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #021042;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        z-index: 999;
+    }
+
+    #mobile-menu a {
+        font-size: 1.2rem;
+        margin: 8px 0;
+        text-decoration: underline;
+        text-decoration-color: #ffffff;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+        color: #E6E9FF;
+    }
+
+    #mobile-menu a:hover {
+        color: #00fff2;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 1.9rem;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    #mobile-menu a {
+        font-size: 1rem;
+    }
+}

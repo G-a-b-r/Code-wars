@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <!-- Основни мета настройки -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заглавие на страницата -->
+    <title>Бордови ИИ</title>
+
+    <!-- Основен CSS файл -->
+    <link rel="stylesheet" href="ai.css">
+
+    <!-- Google Font за футуристичен дизайн -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <!-- Лого -->
+        <div class="navbar-logo">
+            <img src="logo2.png" alt="Лого Космомания">
+        </div>
+
+        <!-- Навигационни линкове (desktop) -->
+        <nav class="navbar-links">
+            <a href="index.html">Начало</a>
+            <a href="team.html">Екипаж</a>
+            <a href="systems.html">Системи</a>
+            <a href="status.html">Статус на кораба</a>
+            <a href="contact.html">Контакт</a>
+        </nav>
+
+        <!-- Бутон за мобилно меню -->
+        <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+
+    </header>
+    <!-- ============== END NAVBAR ============== -->
+
+
+    <!-- ============== MOBILE MENU ============== -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html">Начало</a>
+        <a href="team.html">Екипаж</a>
+        <a href="systems.html">Системи</a>
+        <a href="status.html">Статус на кораба</a>
+        <a href="contact.html">Контакт</a>
+    </div>
+    <!-- ============ END MOBILE MENU ============ -->
+
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <h1>Бордови Изкуствен Интелект</h1>
+    </section>
+    <!-- =============== END HERO =============== -->
+
+
+    <!-- ============== AI DASHBOARD ============== -->
+    <section class="ai-dashboard">
+
+        <!-- Панел: Състояние на системите -->
+        <div class="ai-panel">
+            <span class="label">Състояние на системите</span>
+            <div class="status-bar">
+                <div class="status-fill" id="systemsStatus"></div>
+            </div>
+            <span class="value" id="systemsStatusValue">Нормално</span>
+        </div>
+
+        <!-- Панел: Диагностика -->
+        <div class="ai-panel">
+            <span class="label">Диагностика</span>
+            <div class="status-bar">
+                <div class="status-fill" id="diagnosticsStatus"></div>
+            </div>
+            <span class="value" id="diagnosticsStatusValue">Завършена</span>
+        </div>
+
+        <!-- Панел: Анализ на данни -->
+        <div class="ai-panel">
+            <span class="label">Анализ на данни</span>
+            <div class="status-bar">
+                <div class="status-fill" id="dataAnalysisStatus"></div>
+            </div>
+            <span class="value" id="dataAnalysisStatusValue">Активен</span>
+        </div>
+
+        <!-- Панел: Подпомагане на екипажа -->
+        <div class="ai-panel">
+            <span class="label">Подпомагане на екипажа</span>
+            <div class="status-bar">
+                <div class="status-fill" id="crewSupportStatus"></div>
+            </div>
+            <span class="value" id="crewSupportStatusValue">Активно</span>
+        </div>
+
+    </section>
+    <!-- ============ END AI DASHBOARD ============ -->
+
+
+    <!-- ============== AI LOGIC SCRIPT ============== -->
+    <script>
+        // Функция за динамично обновяване на AI панела
+        function updateAIDashboard() {
+
+            // Генериране на произволни състояния
+            const systemsStatus = Math.random() > 0.5 ? 'Нормално' : 'Проблем';
+            const diagnosticsStatus = Math.random() > 0.5 ? 'Завършена' : 'В процес';
+            const dataAnalysisStatus = Math.random() > 0.5 ? 'Активен' : 'Неактивен';
+            const crewSupportStatus = Math.random() > 0.5 ? 'Активно' : 'Неактивно';
+
+            // Обновяване на текст и прогрес барове
+            document.getElementById('systemsStatusValue').textContent = systemsStatus;
+            document.getElementById('systemsStatus').style.width =
+                systemsStatus === 'Нормално' ? '100%' : '50%';
+
+            document.getElementById('diagnosticsStatusValue').textContent = diagnosticsStatus;
+            document.getElementById('diagnosticsStatus').style.width =
+                diagnosticsStatus === 'Завършена' ? '100%' : '75%';
+
+            document.getElementById('dataAnalysisStatusValue').textContent = dataAnalysisStatus;
+            document.getElementById('dataAnalysisStatus').style.width =
+                dataAnalysisStatus === 'Активен' ? '100%' : '60%';
+
+            document.getElementById('crewSupportStatusValue').textContent = crewSupportStatus;
+            document.getElementById('crewSupportStatus').style.width =
+                crewSupportStatus === 'Активно' ? '100%' : '50%';
+        }
+
+        // Автоматично обновяване на всеки 2 секунди
+        setInterval(updateAIDashboard, 2000);
+
+        // Първоначално извикване
+        updateAIDashboard();
+    </script>
+    <!-- ============ END AI LOGIC SCRIPT ============ -->
+
+
+    <!-- ============== MOBILE MENU SCRIPT ============== -->
+    <script>
+        // Показване / скриване на мобилното меню
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+    <!-- ============ END MOBILE MENU SCRIPT ============ -->
+
+</body>
+</html>

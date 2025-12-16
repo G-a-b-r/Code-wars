@@ -1,0 +1,373 @@
+/* ======================== */
+/*          BODY            */
+/* ======================== */
+/* Основни стилове за цялата страница */
+body {
+    margin: 0;                          /* Премахва стандартния margin */
+    font-family: Arial, sans-serif;    /* Основен шрифт */
+    background: #061052;               /* Фон на страницата */
+    color: #E6E9FF;                    /* Основен цвят на текста */
+    padding-top: 80px;                 /* Място за фиксираната навигация */
+}
+
+
+/* ======================== */
+/*          NAVBAR          */
+/* ======================== */
+/* Основен контейнер на навигацията */
+.navbar {
+    background: #000333;               /* Тъмен фон */
+    padding: 15px 25px;                /* Вътрешни отстояния */
+    display: flex;                     /* Flexbox подредба */
+    justify-content: space-between;    /* Раздалечаване на елементите */
+    align-items: center;               /* Вертикално центриране */
+    position: fixed;                   /* Фиксирана навигация */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;                    /* Над всички останали елементи */
+}
+
+/* Контейнер за логото */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Изображение на логото */
+.navbar-logo img {
+    width: 48px;
+    height: auto;
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite; /* Пулсираща анимация */
+    pointer-events: none;                     /* Без взаимодействие */
+}
+
+
+/* ======================== */
+/*       LOGO ANIMATION     */
+/* ======================== */
+/* Анимация за уголемяване / смаляване */
+@keyframes float {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+
+/* ======================== */
+/*     NAVBAR LINKS         */
+/* ======================== */
+/* Контейнер за навигационните линкове */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-right: 50px;
+}
+
+/* Стил на отделен линк */
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Линия под линка (hover ефект) */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Анимация при hover */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/* ======================== */
+/*     NAVBAR TOGGLE        */
+/* ======================== */
+/* Бутон за мобилно меню */
+.navbar-toggle {
+    display: none;              /* Скрит на desktop */
+    background: #ffffff;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    z-index: 10001;
+    margin-right: 50px;
+}
+
+/* Трите черти на hamburger менюто */
+.navbar-toggle::before,
+.navbar-toggle::after,
+.navbar-toggle span {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: #00fff2;
+    margin: 4px 0;
+}
+
+
+/* ======================== */
+/*        MOBILE MENU       */
+/* ======================== */
+/* Контейнер за мобилната навигация */
+#mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #021042;
+    padding: 10px 20px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 8px 0;
+    color: #E6E9FF;
+}
+
+/* Hover ефект */
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+
+/* ======================== */
+/*      MEMBER SECTION      */
+/* ======================== */
+/* Основен контейнер на секцията */
+.member-section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #E6E9FF;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Заглавие на секцията */
+.member-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #C98CFF;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #C98CFF, 0 0 20px #00EFFF, 0 0 30px #FF6F61;
+    animation: neonPulse 2s infinite alternate;
+}
+
+/* Анимация за неонов текст */
+@keyframes neonPulse {
+    0% {
+        text-shadow: 0 0 10px #C98CFF, 0 0 20px #00EFFF, 0 0 30px #FF6F61;
+    }
+    50% {
+        text-shadow: 0 0 20px #C98CFF, 0 0 30px #00EFFF, 0 0 40px #FF6F61;
+    }
+    100% {
+        text-shadow: 0 0 10px #C98CFF, 0 0 20px #00EFFF, 0 0 30px #FF6F61;
+    }
+}
+
+
+/* ======================== */
+/*   MEMBER CONTENT LAYOUT  */
+/* ======================== */
+/* Контейнер за снимка + информация */
+.member-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Контейнер за снимката */
+.member-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Z-index защита */
+.member-photo,
+.member-photo img,
+.member-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Снимка */
+.member-photo img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid #00EFFF;
+    box-shadow: 0 0 30px #00EFFF, 0 0 60px #C98CFF;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект за снимката */
+.member-photo img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px #00EFFF, 0 0 80px #C98CFF;
+}
+
+
+/* ======================== */
+/*   INFO RECTANGLE         */
+/* ======================== */
+/* Карта с информация */
+.member-info-rectangle {
+    background: linear-gradient(145deg, #0b1140, #0d1560);
+    border: 2px solid #C98CFF;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 0 0 30px rgba(201, 140, 255, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект */
+.member-info-rectangle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 50px #00EFFF, 0 0 80px #C98CFF;
+}
+
+/* Роля */
+.member-info-rectangle .role {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #00fff2;
+    margin-bottom: 15px;
+}
+
+/* Описателен текст */
+.member-info-rectangle p {
+    font-size: 16px;
+    color: #dcdcdc;
+    margin-bottom: 15px;
+}
+
+
+/* ======================== */
+/*     MISSION CARDS        */
+/* ======================== */
+/* Контейнер за мисии */
+.mission-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+/* Отделна карта */
+.mission-card {
+    background: linear-gradient(135deg, #0b1140, #0d1560);
+    border: 1px solid #C98CFF;
+    border-radius: 15px;
+    padding: 10px 15px;
+    box-shadow: 0 0 20px rgba(201, 140, 255, 0.5);
+    font-size: 0.95rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover ефект */
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px #00EFFF, 0 0 50px #C98CFF;
+}
+
+
+/* ======================== */
+/*         BUTTON           */
+/* ======================== */
+/* Основен бутон */
+.member-info-rectangle .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #00EFFF;
+    color: #000033;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00EFFF;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+/* Hover ефект */
+.member-info-rectangle .btn:hover {
+    background-color: #C98CFF;
+    color: #fff;
+    box-shadow: 0 0 40px #C98CFF, 0 0 60px #00EFFF;
+}
+
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+@media (max-width: 1024px) {
+    .member-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+        margin-right: 50px;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .member-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-info-rectangle {
+        text-align: center;
+    }
+
+    .mission-cards {
+        justify-content: center;
+    }
+}
+
+/* Размер на логото за по-малки екрани */
+.navbar-logo img {
+    width: 55px;
+    height: auto;
+}

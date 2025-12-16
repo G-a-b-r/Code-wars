@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <!-- Основни мета данни -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заглавие на страницата -->
+    <title>Комуникационна система</title>
+
+    <!-- Основен CSS файл -->
+    <link rel="stylesheet" href="communication.css">
+
+    <!-- Google Font за sci-fi визия -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======================== -->
+    <!--          NAVBAR          -->
+    <!-- ======================== -->
+    <header class="navbar">
+
+        <!-- Лого -->
+        <div class="navbar-logo">
+            <img src="logo2.png" alt="Лого Космомания">
+        </div>
+
+        <!-- Навигационни линкове (desktop) -->
+        <nav class="navbar-links">
+            <a href="index.html">Начало</a>
+            <a href="team.html">Екипаж</a>
+            <a href="systems.html">Системи</a>
+            <a href="status.html">Статус на кораба</a>
+            <a href="contact.html">Контакт</a>
+        </nav>
+
+        <!-- Бутон за мобилно меню -->
+        <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+
+
+    <!-- ======================== -->
+    <!--        MOBILE MENU       -->
+    <!-- ======================== -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html">Начало</a>
+        <a href="team.html">Екипаж</a>
+        <a href="systems.html">Системи</a>
+        <a href="status.html">Статус на кораба</a>
+        <a href="contact.html">Контакт</a>
+    </div>
+
+
+    <!-- ======================== -->
+    <!--           HERO           -->
+    <!-- ======================== -->
+    <section class="hero">
+        <h1>Комуникационна система</h1>
+    </section>
+
+
+    <!-- ======================== -->
+    <!--    COMMUNICATION DATA    -->
+    <!-- ======================== -->
+    <section class="communication-sensors">
+
+        <!-- Сигнал -->
+        <div class="sensor">
+            <span class="label">Сигнал</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="signalBar"></div>
+            </div>
+            <span class="value" id="signalValue">0%</span>
+        </div>
+
+        <!-- Канална мощност -->
+        <div class="sensor">
+            <span class="label">Канална мощност</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="channelPowerBar"></div>
+            </div>
+            <span class="value" id="channelPowerValue">0 dBm</span>
+        </div>
+
+        <!-- Качество на връзката -->
+        <div class="sensor">
+            <span class="label">Качество на връзката</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="linkQualityBar"></div>
+            </div>
+            <span class="value" id="linkQualityValue">0%</span>
+        </div>
+
+        <!-- Закъснение -->
+        <div class="sensor">
+            <span class="label">Закъснение</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="latencyBar"></div>
+            </div>
+            <span class="value" id="latencyValue">0 ms</span>
+        </div>
+
+        <!-- Шум -->
+        <div class="sensor">
+            <span class="label">Шум</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="noiseBar"></div>
+            </div>
+            <span class="value" id="noiseValue">0 dB</span>
+        </div>
+
+        <!-- Активни връзки -->
+        <div class="sensor">
+            <span class="label">Активни връзки</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="connectionsBar"></div>
+            </div>
+            <span class="value" id="connectionsValue">0</span>
+        </div>
+
+    </section>
+
+
+    <!-- ======================== -->
+    <!--        MAIN SCRIPT       -->
+    <!-- ======================== -->
+    <script>
+        // Генерира динамични стойности за комуникационните сензори
+        function updateCommSensors() {
+
+            const signal = (Math.random() * 100).toFixed(1);
+            const channelPower = (Math.random() * 50).toFixed(1);
+            const linkQuality = (Math.random() * 100).toFixed(1);
+            const latency = Math.floor(Math.random() * 500);
+            const noise = (Math.random() * 20).toFixed(1);
+            const connections = Math.floor(Math.random() * 10);
+
+            document.getElementById('signalValue').textContent = signal + '%';
+            document.getElementById('signalBar').style.width = signal + '%';
+
+            document.getElementById('channelPowerValue').textContent = channelPower + ' dBm';
+            document.getElementById('channelPowerBar').style.width = (channelPower * 2) + '%';
+
+            document.getElementById('linkQualityValue').textContent = linkQuality + '%';
+            document.getElementById('linkQualityBar').style.width = linkQuality + '%';
+
+            document.getElementById('latencyValue').textContent = latency + ' ms';
+            document.getElementById('latencyBar').style.width = (100 - (latency / 5)) + '%';
+
+            document.getElementById('noiseValue').textContent = noise + ' dB';
+            document.getElementById('noiseBar').style.width = (100 - (noise * 5)) + '%';
+
+            document.getElementById('connectionsValue').textContent = connections;
+            document.getElementById('connectionsBar').style.width = (connections * 10) + '%';
+        }
+
+        // Обновяване на данните всяка секунда
+        setInterval(updateCommSensors, 1000);
+        updateCommSensors();
+    </script>
+
+
+    <!-- ======================== -->
+    <!--      MOBILE MENU JS      -->
+    <!-- ======================== -->
+    <script>
+        // Показва / скрива мобилното меню
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <!-- Основни мета настройки -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заглавие на страницата -->
+    <title>Животоподдържащи системи</title>
+
+    <!-- Основен CSS файл -->
+    <link rel="stylesheet" href="life-support.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======================== -->
+    <!--          NAVBAR          -->
+    <!-- ======================== -->
+    <header class="navbar">
+        <!-- Лого -->
+        <div class="navbar-logo">
+            <img src="logo2.png" alt="Лого Космомания">
+        </div>
+
+        <!-- Навигационни линкове (desktop) -->
+        <nav class="navbar-links">
+            <a href="index.html">Начало</a>
+            <a href="team.html">Екипаж</a>
+            <a href="systems.html">Системи</a>
+            <a href="status.html">Статус на кораба</a>
+            <a href="contact.html">Контакт</a>
+        </nav>
+
+        <!-- Бутон за мобилното меню -->
+        <button class="navbar-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- ======================== -->
+    <!--       MOBILE MENU        -->
+    <!-- ======================== -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html">Начало</a>
+        <a href="team.html">Екипаж</a>
+        <a href="systems.html">Системи</a>
+        <a href="status.html">Статус на кораба</a>
+        <a href="contact.html">Контакт</a>
+    </div>
+
+    <!-- ======================== -->
+    <!--        HERO TITLE        -->
+    <!-- ======================== -->
+    <h1 class="hero-title">Животоподдържащи системи</h1>
+
+    <!-- ======================== -->
+    <!--     SYSTEMS DASHBOARD    -->
+    <!-- ======================== -->
+    <section class="systems-dashboard">
+        <!-- Панел: Кислород -->
+        <div class="system-panel">
+            <h3>Кислород</h3>
+            <p>Следи нивото на кислород и поддържа чист въздух за екипажа.</p>
+        </div>
+
+        <!-- Панел: Вода -->
+        <div class="system-panel">
+            <h3>Вода</h3>
+            <p>Обезпечава чиста питейна вода и контролира системата за пречистване.</p>
+        </div>
+
+        <!-- Панел: Температура -->
+        <div class="system-panel">
+            <h3>Температура</h3>
+            <p>Поддържа оптимални температурни условия в целия кораб.</p>
+        </div>
+
+        <!-- Панел: Безопасност -->
+        <div class="system-panel">
+            <h3>Безопасност</h3>
+            <p>Мониторинг на аварийни ситуации, пожар и налягане за безопасност на борда.</p>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!--      SENSORS SECTION     -->
+    <!-- ======================== -->
+    <section class="sensors-dashboard">
+
+        <!-- Сензор: Кислород -->
+        <div class="sensor">
+            <span class="label">Ниво кислород</span>
+            <span class="value" id="oxygenLevel">98%</span>
+        </div>
+
+        <!-- Сензор: Вода -->
+        <div class="sensor">
+            <span class="label">Ниво вода</span>
+            <span class="value" id="waterLevel">75%</span>
+        </div>
+
+        <!-- Сензор: Температура -->
+        <div class="sensor">
+            <span class="label">Температура</span>
+            <span class="value" id="temperature">22°C</span>
+        </div>
+
+        <!-- Сензор: Налягане -->
+        <div class="sensor">
+            <span class="label">Налягане</span>
+            <span class="value" id="pressure">1013 hPa</span>
+        </div>
+
+        <!-- Сензор: Филтри -->
+        <div class="sensor">
+            <span class="label">Филтри</span>
+            <span class="value" id="filters">Активни</span>
+        </div>
+
+        <!-- Сензор: Сигнали -->
+        <div class="sensor">
+            <span class="label">Сигнали за безопасност</span>
+            <span class="value" id="alerts">0</span>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!--        JAVASCRIPT        -->
+    <!-- ======================== -->
+    <script>
+        // Функция за показване / скриване на мобилното меню
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+
+    <script>
+        // Функция за динамично обновяване на сензорите
+        function updateSensors() {
+            document.getElementById('oxygenLevel').textContent =
+                Math.floor(Math.random() * 21 + 80) + '%';
+
+            document.getElementById('waterLevel').textContent =
+                Math.floor(Math.random() * 31 + 60) + '%';
+
+            document.getElementById('temperature').textContent =
+                Math.floor(Math.random() * 6 + 20) + '°C';
+
+            document.getElementById('pressure').textContent =
+                Math.floor(Math.random() * 11 + 1005) + ' hPa';
+
+            document.getElementById('filters').textContent =
+                Math.random() > 0.2 ? 'Активни' : 'Почистени';
+
+            document.getElementById('alerts').textContent =
+                Math.floor(Math.random() * 3);
+        }
+
+        // Автоматично обновяване на всеки 2 секунди
+        setInterval(updateSensors, 2000);
+    </script>
+
+</body>
+</html>

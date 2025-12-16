@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <!-- Основни мета настройки -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заглавие на страницата -->
+    <title>Космическа Мисия – Екипаж</title>
+
+    <!-- Основен CSS файл за страницата -->
+    <link rel="stylesheet" href="team.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Audiowide&family=Russo+One&display=swap" rel="stylesheet">
+
+    <!-- JavaScript: управление на мобилното меню -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- ===================== -->
+    <!--        NAVBAR         -->
+    <!-- ===================== -->
+    <header class="navbar">
+
+        <!-- Лого -->
+        <div class="navbar-logo">
+            <img src="logo2.png" alt="Лого Космомания">
+        </div>
+
+        <!-- Основна навигация (Desktop) -->
+        <nav class="navbar-links">
+            <a href="index.html">Начало</a>
+            <a href="team.html">Екипаж</a>
+            <a href="systems.html">Системи</a>
+            <a href="status.html">Статус на кораба</a>
+            <a href="contact.html">Контакт</a>
+        </nav>
+
+        <!-- Бутон за мобилно меню -->
+        <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <!-- ===================== -->
+    <!--      MOBILE MENU     -->
+    <!-- ===================== -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html">Начало</a>
+        <a href="team.html">Екипаж</a>
+        <a href="systems.html">Системи</a>
+        <a href="status.html">Статус на кораба</a>
+        <a href="contact.html">Контакт</a>
+    </div>
+
+    <!-- ===================== -->
+    <!--     TEAM SECTION     -->
+    <!-- ===================== -->
+    <section class="team-section">
+
+        <!-- Заглавие на секцията -->
+        <h2>Екипажът на мисията</h2>
+
+        <!-- Контейнер за картите на екипажа -->
+        <div class="team-row">
+
+            <!-- КАПИТАН – Навигационна система -->
+            <div class="team-card">
+                <div class="card-glow"></div>
+                <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="Капитан Петър Иванов">
+                <h3>капитан Петър Иванов</h3>
+                <p class="role">Навигационна система</p>
+                <p>Отговаря за безопасното придвижване на кораба и планирането на траекториите.</p>
+                <a href="petar.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+            </div>
+
+            <!-- Животоподдържащи системи -->
+            <div class="team-card">
+                <div class="card-glow"></div>
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Д-р Мария Георгиева">
+                <h3>д-р Мария Георгиева</h3>
+                <p class="role">Животоподдържащи системи</p>
+                <p>Поддържа живота на екипажа чрез кислород, вода и контрол на температурата.</p>
+                <a href="maria.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+            </div>
+
+            <!-- Енергийно ядро -->
+            <div class="team-card">
+                <div class="card-glow"></div>
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Инженер Александър Стоянов">
+                <h3>инженер Александър Стоянов</h3>
+                <p class="role">Енергийно ядро</p>
+                <p>Управлява енергията на кораба и следи за стабилното захранване на системите.</p>
+                <a href="aleksandar.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+            </div>
+
+            <!-- Двигателна система -->
+            <div class="team-card">
+                <div class="card-glow"></div>
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Лейтенант Николай Петров">
+                <h3>лейтенант Николай Петров</h3>
+                <p class="role">Двигателна система</p>
+                <p>Контролира двигателната система и движението на кораба.</p>
+                <a href="nikolay.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+            </div>
+
+            <!-- Комуникационна система -->
+            <div class="team-card">
+                <div class="card-glow"></div>
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Инженер Венета Димитрова">
+                <h3>инженер Венета Димитрова</h3>
+                <p class="role">Комуникационна система</p>
+                <p>Поддържа връзка с базата и други кораби чрез радио и лазерни предаватели.</p>
+                <a href="veneta.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+            </div>
+
+            <!-- Бордови ИИ -->
+            <div class="team-card">
+                <div class="card-glow"></div>
+                <img src="https://randomuser.me/api/portraits/men/73.jpg" alt="Д-р Ивайло Костов">
+                <h3>Ивайло Костов</h3>
+                <p class="role">Бордови ИИ</p>
+                <p>Отговаря за автоматизацията, диагностика и анализ на данни на борда.</p>
+                <a href="ivaylo.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

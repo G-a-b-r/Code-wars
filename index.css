@@ -1,0 +1,444 @@
+/* ======================== */
+/*          BODY            */
+/* ======================== */
+/* Основни глобални стилове */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #061052;
+    color: #E6E9FF;
+}
+
+/* ======================== */
+/*          NAVBAR          */
+/* ======================== */
+/* Основна навигационна лента */
+.navbar {
+    background: #000333;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Контейнер за логото */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Лого изображение с анимации */
+.navbar-logo img {
+    width: 8%;
+    height: 8%;
+    margin-right: 10px;
+    animation:
+        float 3s ease-in-out infinite,
+        zoom 4s ease-in-out infinite;
+}
+
+/* Анимация за вертикално "плаване" */
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Анимация за леко приближаване */
+@keyframes zoom {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Линкове в навигацията */
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Декоративна линия под линковете */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Показване на линията при hover */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Бутон за мобилно меню */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00EFFF;
+}
+
+/* ======================== */
+/*        MOBILE MENU       */
+/* ======================== */
+/* Падащо мобилно меню */
+#mobile-menu {
+    position: fixed;
+    top: 70px; /* разстояние под navbar */
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background: #021042;
+    padding: 20px;
+    z-index: 9999;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 8px 0;
+    color: #E6E9FF;
+}
+
+/* Hover ефект за мобилни линкове */
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+/* ======================== */
+/*     FULLSCREEN HERO      */
+/* ======================== */
+/* Hero секция на цял екран */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Фоново изображение */
+.hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+/* Тъмен overlay */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 2;
+}
+
+/* Мото текст в hero секцията */
+.hero .moto {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%) skewX(-2deg);
+    z-index: 3;
+
+    font-family: 'Audiowide', 'Orbitron', 'Russo One', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    color: #00fff2;
+    letter-spacing: 3px;
+    text-align: center;
+    max-width: 900px;
+
+    text-shadow:
+        2px 0 #ff00c8,
+       -2px 0 #00d9ff,
+        0 0 12px rgba(0,255,255,0.6),
+        0 0 25px rgba(0,255,255,0.4);
+
+    animation: motoPulse 2.8s infinite ease-in-out;
+}
+
+/* Пулсиращ неонов ефект */
+@keyframes motoPulse {
+    0% {
+        text-shadow:
+            2px 0 #ff00c8,
+           -2px 0 #00d9ff,
+            0 0 10px rgba(0,255,255,0.6),
+            0 0 20px rgba(0,255,255,0.4);
+    }
+    50% {
+        text-shadow:
+            3px 0 #ff00c8,
+           -3px 0 #00d9ff,
+            0 0 18px rgba(0,255,255,0.8),
+            0 0 35px rgba(0,255,255,0.7);
+    }
+    100% {
+        text-shadow:
+            2px 0 #ff00c8,
+           -2px 0 #00d9ff,
+            0 0 10px rgba(0,255,255,0.6),
+            0 0 20px rgba(0,255,255,0.4);
+    }
+}
+
+/* ======================== */
+/*          MISSION         */
+/* ======================== */
+/* Секция „Мисия“ */
+.mission-section {
+    background:
+        url("stars.png") repeat,
+        linear-gradient(180deg, #030318, #080529);
+    background-size: cover;
+    background-position: center;
+    padding: 40px 25px;
+    border-radius: 20px;
+    margin: 40px auto;
+    width: min(900px, 90%);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+/* Заглавие на мисията */
+.mission-section h2 {
+    color: #C98CFF;
+    text-align: center;
+    margin-top: 0;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(201, 140, 255, 0.6);
+}
+
+/* Текст на мисията */
+.mission-section p {
+    color: #E6E9FF;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 0 0 6px #000;
+    text-align: justify;
+    text-align-last: left;
+}
+
+/* ======================== */
+/*     СИСТЕМИ – ОСНОВНИ    */
+/* ======================== */
+/* Заглавие на системите */
+.systems-section h2 {
+    font-size: 2.5rem;
+    color: #C98CFF;
+    margin: 20px 0 50px 0;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow:
+        0 0 5px rgba(201, 140, 255, 0.7),
+        0 0 10px rgba(0, 255, 255, 0.5),
+        0 0 15px rgba(255, 0, 255, 0.3);
+    animation: neonPulse 2s infinite alternate;
+}
+
+/* Неонов пулс */
+@keyframes neonPulse {
+    0% {
+        text-shadow:
+            0 0 5px rgba(201, 140, 255, 0.7),
+            0 0 10px rgba(0, 255, 255, 0.5),
+            0 0 15px rgba(255, 0, 255, 0.3);
+    }
+    50% {
+        text-shadow:
+            0 0 10px rgba(201, 140, 255, 1),
+            0 0 20px rgba(0, 255, 255, 0.8),
+            0 0 25px rgba(255, 0, 255, 0.5);
+    }
+    100% {
+        text-shadow:
+            0 0 5px rgba(201, 140, 255, 0.7),
+            0 0 10px rgba(0, 255, 255, 0.5),
+            0 0 15px rgba(255, 0, 255, 0.3);
+    }
+}
+
+/* ======================== */
+/*       SYSTEMS ROW        */
+/* ======================== */
+/* Подредба на картите */
+.systems-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+    row-gap: 80px;
+    padding: 50px 20px;
+}
+
+/* Общ стил за всички карти */
+.system-card,
+.nav-card,
+.life-card {
+    background: linear-gradient(145deg, #0b1140, #0d1560);
+    border: 2px solid rgba(201, 140, 255, 0.6);
+    border-radius: 15px;
+    width: 350px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(201, 140, 255, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+/* Hover ефект за картите */
+.system-card:hover,
+.nav-card:hover,
+.life-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(201, 140, 255, 0.6);
+}
+
+/* Икони в картите */
+.system-card img,
+.nav-card img,
+.life-card img {
+    width: 80px;
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+/* Пулсираща икона */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.1); }
+}
+
+/* Заглавия на картите */
+.system-card h3,
+.nav-card h3,
+.life-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(201, 140, 255, 0.6);
+}
+
+/* Описания в картите */
+.system-card p,
+.nav-card p,
+.life-card p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: #dcdcdc;
+}
+
+/* Бутони */
+.btn,
+.btn-life {
+    display: inline-block;
+    margin: 5px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #061052;
+    font-weight: bold;
+    background: linear-gradient(
+        145deg,
+        rgba(201, 140, 255, 0.6),
+        rgba(201, 140, 255, 0.6)
+    );
+    box-shadow: 0 0 15px rgba(201, 140, 255, 0.6);
+    transition: all 0.3s;
+}
+
+/* Hover за бутоните */
+.btn:hover,
+.btn-life:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(201, 140, 255, 0.6);
+}
+
+/* Светещ панел зад картите */
+.panel-glow,
+.life-panel-glow {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff6f6122, #ff6f6100, #ff6f6122);
+    z-index: -1;
+    animation: glow 3s infinite alternate;
+}
+
+/* Glow ефект */
+@keyframes glow {
+    0%   { box-shadow: 0 0 20px rgba(201, 140, 255, 0.6); }
+    50%  { box-shadow: 0 0 50px rgba(201, 140, 255, 0.6); }
+    100% { box-shadow: 0 0 20px rgba(201, 140, 255, 0.6); }
+}
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+/* Стилове за мобилни устройства */
+@media (max-width: 768px) {
+
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-logo img {
+        width: 55px;
+        height: auto;
+    }
+
+    .hero .moto {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) skewX(-2deg);
+        font-size: clamp(1.4rem, 5vw, 2.2rem);
+        padding: 0 20px;
+        line-height: 1.4;
+    }
+
+    .systems-row {
+        flex-direction: column;
+        gap: 40px;
+        padding: 30px 16px;
+    }
+
+    .system-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}

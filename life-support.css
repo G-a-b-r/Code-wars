@@ -1,0 +1,361 @@
+/* ======================== */
+/*        GLOBAL RESET      */
+/* ======================== */
+/* Забранява хоризонтално скролване на цялата страница */
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* ======================== */
+/*         BODY             */
+/* ======================== */
+/* Основни стилове за страницата */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #061052;
+    color: #E6E9FF;
+
+    /* Отстъп за фиксирания navbar */
+    padding-top: 70px;
+
+    /* Допълнителна защита от хоризонтален скрол */
+    overflow-x: hidden;
+}
+
+/* ======================== */
+/*         NAVBAR           */
+/* ======================== */
+/* Фиксирана навигационна лента */
+.navbar {
+    background: #000333;
+    padding: 15px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    z-index: 9999;
+}
+
+/* Контейнер за логото */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Лого изображение */
+.navbar-logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+
+    /* Пулсираща анимация */
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Анимация за логото */
+@keyframes float {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* Линкове в navbar-а (desktop) */
+.navbar-links a {
+    position: relative;
+    margin-left: 20px;
+
+    color: #00fff2;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+
+    transition: all 0.3s ease;
+}
+
+/* Подчертаване при hover */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: rgba(0, 255, 255, 0.5);
+    border-radius: 3px;
+
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Бутон за мобилното меню */
+.navbar-toggle {
+    display: none;
+
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00fff2;
+
+    background: white;
+    border: none;
+    padding: 10px;
+    border-radius: 0;
+
+    box-shadow: 0 0 10px rgba(0,255,255,0.4);
+    margin-right: 40px;
+}
+
+/* Линиите на hamburger бутона */
+.navbar-toggle span {
+    display: block;
+    width: 22px;
+    height: 3px;
+
+    background: #00fff2;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+/* ======================== */
+/*       MOBILE MENU        */
+/* ======================== */
+/* Скрито меню за мобилни устройства */
+#mobile-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+
+    width: 100%;
+    padding: 20px;
+
+    background: #021042;
+
+    display: none;
+    flex-direction: column;
+
+    z-index: 9999;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 8px 0;
+    color: #E6E9FF;
+}
+
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+/* ======================== */
+/*          HERO            */
+/* ======================== */
+/* Заглавна секция */
+.hero {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+}
+
+/* Основно заглавие */
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: #C98CFF;
+
+    text-shadow: 0 0 15px rgba(201,140,255,0.7);
+    margin: 0;
+
+    max-width: 100%;
+    white-space: nowrap;
+    word-break: break-word;
+}
+
+/* Малки екрани – заглавие */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+}
+
+/* Алтернативно заглавие */
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    color: #C98CFF;
+
+    text-shadow: 0 0 15px rgba(201,140,255,0.7);
+    white-space: nowrap;
+    margin-top: 50px;
+}
+
+/* ======================== */
+/*     SYSTEM PANELS        */
+/* ======================== */
+/* Контейнер за панелите */
+.systems-dashboard {
+    max-width: 1200px;
+    margin: 20px auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 0 20px;
+}
+
+/* Индивидуален системен панел */
+.system-panel {
+    flex: 1;
+
+    background: linear-gradient(145deg, #0d1560, #0b1140);
+    border: 2px solid #7D4BFF;
+    border-radius: 15px;
+
+    padding: 25px;
+    text-align: center;
+
+    box-shadow: 0 0 20px rgba(125, 75, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.system-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(125, 75, 255, 0.5);
+}
+
+/* Заглавие на панел */
+.system-panel h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #C98CFF;
+}
+
+/* Текст в панел */
+.system-panel p {
+    font-size: 1rem;
+    color: #E6E9FF;
+    line-height: 1.5;
+}
+
+/* ======================== */
+/*       SENSORS GRID       */
+/* ======================== */
+/* Grid за сензори */
+.sensors-dashboard {
+    max-width: 1000px;
+    margin: 30px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    padding: 0 20px;
+}
+
+/* Карта за отделен сензор */
+.sensor {
+    background: linear-gradient(145deg, #0d1560, #0b1140);
+    border: 2px solid #7D4BFF;
+    border-radius: 15px;
+
+    padding: 20px;
+    text-align: center;
+
+    box-shadow: 0 0 20px rgba(125, 75, 255, 0.3);
+    min-width: 0;
+}
+
+/* Етикет на сензора */
+.sensor .label {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #C98CFF;
+    margin-bottom: 10px;
+}
+
+/* Стойност на сензора */
+.sensor .value {
+    font-size: 1.2rem;
+    color: #00fff2;
+}
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+@media (max-width: 900px) {
+    .sensors-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .systems-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sensors-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        white-space: normal;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .systems-dashboard {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 400px) {
+    #mobile-menu a {
+        font-size: 1rem;
+    }
+}

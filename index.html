@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <!-- Основни мета настройки -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Основен CSS файл -->
+    <link rel="stylesheet" href="index.css" />
+
+    <!-- Google Fonts за футуристичен стил -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Audiowide&family=Russo+One&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Заглавие на страницата -->
+    <title>Космическа Мисия – Начало</title>
+
+    <!-- JavaScript за отваряне/затваряне на мобилното меню -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</head>
+
+<body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <!-- Лого -->
+        <div class="navbar-logo">
+            <img src="logo2.png" alt="Лого Космомания" />
+        </div>
+
+        <!-- Основна навигация (десктоп) -->
+        <nav class="navbar-links">
+            <a href="index.html">Начало</a>
+            <a href="team.html">Екипаж</a>
+            <a href="systems.html">Системи</a>
+            <a href="status.html">Статус на кораба</a>
+            <a href="contact.html">Контакт</a>
+        </nav>
+
+        <!-- Бутон за мобилно меню -->
+        <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <!-- ============== MOBILE MENU ============== -->
+    <!-- Навигация за мобилни устройства -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html">Начало</a>
+        <a href="team.html">Екипаж</a>
+        <a href="systems.html">Системи</a>
+        <a href="status.html">Статус на кораба</a>
+        <a href="contact.html">Контакт</a>
+    </div>
+
+    <!-- ================= HERO ================= -->
+    <!-- Начална визуална секция -->
+    <section class="hero">
+        <!-- Фоново изображение -->
+        <img
+            class="hero-img"
+            src="kontrolen_panel.png"
+            alt="Контролен панел"
+        />
+
+        <!-- Мото / слоган -->
+        <h1 class="moto">
+            „Където свършва познатото —<br />
+            ние продължаваме.“
+        </h1>
+    </section>
+
+    <!-- ============== НАШАТА МИСИЯ ============== -->
+    <!-- Описателна секция -->
+    <section class="mission-section">
+        <h2>Нашата мисия</h2>
+
+        <p class="mission-text">
+            Мисията на космическия кораб е да изследва неизвестните региони на
+            галактиката и да събира ценни данни за нови светове.
+            Екипажът е натоварен с откриването на потенциално обитаеми планети и
+            разгадаването на космически явления.
+            Целта е да разширим човешкото познание и да подготвим пътя за бъдещи
+            междупланетни експедиции.
+        </p>
+    </section>
+
+    <!-- ============ ОСНОВНИ СИСТЕМИ ============ -->
+    <section class="systems-section">
+        <h2>Основни системи</h2>
+
+        <!-- Контейнер за картите -->
+        <div class="systems-row">
+
+            <!-- Навигационна система -->
+            <div class="system-card">
+                <div class="panel-glow"></div>
+                <img
+                    src="https://img.icons8.com/ios-filled/100/ff6f61/compass.png"
+                    alt="Навигация"
+                />
+                <h3>Навигационна система</h3>
+                <p>
+                    Осигурява точна ориентация и безопасно придвижване на кораба
+                    чрез GPS, радар и сензори.
+                </p>
+                <a href="navigation.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+                <a href="status.html" class="btn">РАЗГЛЕДАЙ ПАНЕЛА</a>
+            </div>
+
+            <!-- Животоподдържащи системи -->
+            <div class="system-card">
+                <div class="panel-glow"></div>
+                <img
+                    src="https://img.icons8.com/ios-filled/100/ff8c00/oxygen.png"
+                    alt="Животоподдържащи системи"
+                />
+                <h3>Животоподдържащи системи</h3>
+                <p>
+                    Поддържат живота на екипажа: кислород, вода, температура и
+                    безопасност на борда.
+                </p>
+                <a href="life-support.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+                <a href="status.html" class="btn">РАЗГЛЕДАЙ ПАНЕЛА</a>
+            </div>
+
+            <!-- Енергийно ядро -->
+            <div class="system-card">
+                <div class="panel-glow"></div>
+                <img
+                    src="https://img.icons8.com/ios-filled/100/00ff00/lightning-bolt.png"
+                    alt="Енергийно ядро"
+                />
+                <h3>Енергийно ядро</h3>
+                <p>
+                    Производи и управлява енергията на кораба, осигурявайки
+                    стабилно захранване за всички системи.
+                </p>
+                <a href="power-core.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+                <a href="status.html" class="btn">РАЗГЛЕДАЙ ПАНЕЛА</a>
+            </div>
+
+            <!-- Двигателна система -->
+            <div class="system-card">
+                <div class="panel-glow"></div>
+                <img
+                    src="https://img.icons8.com/ios-filled/100/ff0000/rocket.png"
+                    alt="Двигателна система"
+                />
+                <h3>Двигателна система</h3>
+                <p>
+                    Осигурява движение на кораба в пространството чрез основни и
+                    маневрени двигатели.
+                </p>
+                <a href="engine.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+                <a href="status.html" class="btn">РАЗГЛЕДАЙ ПАНЕЛА</a>
+            </div>
+
+            <!-- Комуникационна система -->
+            <div class="system-card">
+                <div class="panel-glow"></div>
+                <img
+                    src="https://img.icons8.com/ios-filled/100/00ffff/satellite.png"
+                    alt="Комуникации"
+                />
+                <h3>Комуникационна система</h3>
+                <p>
+                    Осигурява връзка с базата, други кораби и автоматизирани
+                    станции чрез радио и лазерни предаватели.
+                </p>
+                <a href="communication.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+                <a href="status.html" class="btn">РАЗГЛЕДАЙ ПАНЕЛА</a>
+            </div>
+
+            <!-- Бордови ИИ -->
+            <div class="system-card">
+                <div class="panel-glow"></div>
+                <img
+                    src="https://img.icons8.com/ios-filled/100/ffff00/artificial-intelligence.png"
+                    alt="Бордови ИИ"
+                />
+                <h3>Бордови ИИ</h3>
+                <p>
+                    Автоматизира управлението на системите, диагностика, анализ
+                    на данни и подпомагане на екипажа.
+                </p>
+                <a href="ai.html" class="btn">ПОВЕЧЕ ИНФОРМАЦИЯ</a>
+                <a href="status.html" class="btn">РАЗГЛЕДАЙ ПАНЕЛА</a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

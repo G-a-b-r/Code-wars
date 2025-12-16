@@ -1,0 +1,307 @@
+/* ======================== */
+/*          BODY            */
+/* ======================== */
+/* Основни стилове за цялата страница */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #061052;
+    color: #E6E9FF;
+}
+
+/* ======================== */
+/*          NAVBAR          */
+/* ======================== */
+/* Основен контейнер на навигацията */
+.navbar {
+    background: #000333;
+    padding: 25px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Лого + текст */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Лого изображение */
+.navbar-logo img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+    animation: pulseLogo 3s ease-in-out infinite;
+}
+
+/* Анимация за логото – уголемяване и смаляване */
+@keyframes pulseLogo {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } /* уголемяване с 10% */
+    100% { transform: scale(1); }
+}
+
+/* Навигационни линкове */
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Подчертаване при hover */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Активиране на линията при hover */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Бутон за мобилно меню */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00EFFF;
+}
+
+/* ======================== */
+/*        MOBILE MENU       */
+/* ======================== */
+/* Контейнер за мобилното меню */
+#mobile-menu {
+    position: fixed;
+    top: 70px; /* под navbar-а */
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background: #021042;
+    padding: 20px;
+    z-index: 9999;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 8px 0;
+    color: #E6E9FF;
+}
+
+/* Hover ефект за мобилните линкове */
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+/* ======================== */
+/*        TEAM SECTION      */
+/* ======================== */
+/* Основна секция за екипа */
+.team-section {
+    padding: 150px 20px 50px 20px; /* повече space от navbar */
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Заглавие на секцията */
+.team-section h2 {
+    font-size: 2.5rem;
+    color: #C98CFF;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 5px rgba(201, 140, 255, 0.7),
+        0 0 10px rgba(0, 255, 255, 0.5),
+        0 0 15px rgba(255, 0, 255, 0.3);
+    animation: neonPulse 2s infinite alternate;
+    margin-top: -110px;
+    margin-bottom: 100px;
+}
+
+/* Неонова анимация на заглавието */
+@keyframes neonPulse {
+    0% {
+        text-shadow:
+            0 0 5px rgba(201, 140, 255, 0.7),
+            0 0 10px rgba(0, 255, 255, 0.5),
+            0 0 15px rgba(255, 0, 255, 0.3);
+    }
+    50% {
+        text-shadow:
+            0 0 10px rgba(201, 140, 255, 1),
+            0 0 20px rgba(0, 255, 255, 0.8),
+            0 0 25px rgba(255, 0, 255, 0.5);
+    }
+    100% {
+        text-shadow:
+            0 0 5px rgba(201, 140, 255, 0.7),
+            0 0 10px rgba(0, 255, 255, 0.5),
+            0 0 15px rgba(255, 0, 255, 0.3);
+    }
+}
+
+/* Ред с картите на екипа */
+.team-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+    row-gap: 50px;
+}
+
+/* ======================== */
+/*        TEAM CARD         */
+/* ======================== */
+/* Основна карта */
+.team-card {
+    background: linear-gradient(145deg, #0b1140, #0d1560);
+    border: 2px solid rgba(201, 140, 255, 0.6);
+    border-radius: 15px;
+    width: 300px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(201, 140, 255, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+/* Hover ефект */
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(201, 140, 255, 0.6);
+}
+
+/* Снимка на член от екипа */
+.team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Име */
+.team-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(201, 140, 255, 0.6);
+}
+
+/* Описание */
+.team-card p {
+    font-size: 16px;
+    color: #dcdcdc;
+    margin-bottom: 15px;
+}
+
+/* Роля */
+.team-card .role {
+    font-size: 14px;
+    font-weight: bold;
+    color: #00fff2;
+}
+
+/* ======================== */
+/*         BUTTON           */
+/* ======================== */
+/* Бутон в картата */
+.team-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00EFFF;
+    color: #000033;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 239, 255, 0.6);
+    transition: all 0.3s ease-in-out;
+    animation: btnGlow 2s infinite alternate;
+}
+
+/* Hover за бутона */
+.team-card .btn:hover {
+    background-color: #C98CFF;
+    color: #ffffff;
+    box-shadow:
+        0 0 25px rgba(201, 140, 255, 1),
+        0 0 40px rgba(0, 255, 255, 0.8);
+    transform: translateY(-3px);
+}
+
+/* Анимация за сияние на бутона */
+@keyframes btnGlow {
+    0% { box-shadow: 0 0 10px rgba(0, 239, 255, 0.6); }
+    50% { box-shadow: 0 0 15px rgba(0, 239, 255, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(0, 239, 255, 0.6); }
+}
+
+/* ======================== */
+/*        CARD GLOW         */
+/* ======================== */
+/* Сияние около картата */
+.card-glow {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff6f6122, #ff6f6100, #ff6f6122);
+    z-index: -1;
+    animation: glow 3s infinite alternate;
+}
+
+/* Анимация за сиянието */
+@keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(201, 140, 255, 0.6); }
+    50% { box-shadow: 0 0 50px rgba(201, 140, 255, 0.6); }
+    100% { box-shadow: 0 0 20px rgba(201, 140, 255, 0.6); }
+}
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+@media (max-width: 1024px) {
+    .team-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-links { display: none; }
+    .navbar-toggle { display: block; }
+
+    .team-card {
+        width: 90%;
+    }
+}
+
+/* Корекция на логото при по-малки екрани */
+.navbar-logo img {
+    width: 55px;
+    height: auto;
+}

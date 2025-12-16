@@ -1,0 +1,339 @@
+/* ======================== */
+/*         BODY             */
+/* ======================== */
+/* Основни стилове за цялата страница */
+body {
+    margin: 0;                               /* Премахва стандартния margin */
+    font-family: Arial, sans-serif;          /* Основен шрифт */
+    background: #061052;                     /* Фонов цвят */
+    color: #E6E9FF;                          /* Основен цвят на текста */
+}
+
+/* ======================== */
+/*         NAVBAR           */
+/* ======================== */
+/* Основен контейнер на навигацията */
+.navbar {
+    background: #000333;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;          /* Разделя логото и линковете */
+    align-items: center;
+    position: sticky;                        /* Залепва при скрол */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Контейнер за логото */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00EFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Лого изображение с анимации */
+.navbar-logo img {
+    width: 8%;
+    height: 8%;
+    margin-right: 10px;
+    animation: 
+        float 3s ease-in-out infinite,        /* Плавно движение нагоре/надолу */
+        zoom 4s ease-in-out infinite;         /* Леко увеличение */
+}
+
+/* Анимация за вертикално движение */
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Анимация за zoom ефект */
+@keyframes zoom {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Навигационни линкове */
+.navbar-links a {
+    position: relative;
+    color: #00fff2;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Подчертаване под линковете */
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 255, 255, 0.5);
+    transform: scaleX(0);                    /* Скрито по подразбиране */
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Анимация при hover */
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Бутон за мобилно меню */
+.navbar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00EFFF;
+}
+
+/* ======================== */
+/*        MOBILE MENU       */
+/* ======================== */
+/* Контейнер за мобилната навигация */
+#mobile-menu {
+    position: fixed;
+    top: 70px;                               /* Под navbar-а */
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background: #021042;
+    padding: 20px;
+    z-index: 9999;
+}
+
+/* Линкове в мобилното меню */
+#mobile-menu a {
+    margin: 8px 0;
+    color: #E6E9FF;
+}
+
+/* Hover ефект */
+#mobile-menu a:hover {
+    color: #1E90FF;
+}
+
+/* ======================== */
+/*      STATUS SECTION      */
+/* ======================== */
+/* Основна секция със статуси */
+.status-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Заглавие на секцията */
+.status-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #C98CFF;
+    text-shadow: 0 0 10px rgba(201,140,255,0.7);
+}
+
+/* ======================== */
+/*         SYSTEMS          */
+/* ======================== */
+/* Заглавие за системите */
+.systems-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #00fff2;
+}
+
+/* Контейнер за една система */
+.system {
+    margin-bottom: 50px;
+}
+
+/* Име на системата */
+.system-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Линия със зони (червено/жълто/зелено) */
+.system-line {
+    position: relative;
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background: linear-gradient(
+        to right,
+        #ff0000 0%,
+        #ff0000 33%,
+        #ffff00 33%,
+        #ffff00 66%,
+        #00ffcc 66%,
+        #00ffcc 100%
+    );
+}
+
+/* Подвижна точка върху линията */
+.system-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #000000;
+    cursor: pointer;
+    transition: background 0.3s;
+    touch-action: none;
+}
+
+/* Текстов статус */
+.system-status {
+    margin-top: 25px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffff00;
+    transition: color 0.3s;
+}
+
+/* ======================== */
+/*         PANELS           */
+/* ======================== */
+/* Общ панел */
+.panel {
+    background: linear-gradient(145deg, #0b1140, #0d1560);
+    border: 2px solid rgba(201,140,255,0.6);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 25px rgba(0,255,255,0.2);
+}
+
+/* ======================== */
+/*      LOCATION MAP        */
+/* ======================== */
+/* Grid за карта + информация */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+/* Космическа карта */
+.space-map {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    background: radial-gradient(circle at center, #050b2e, #010318);
+    border: 2px solid rgba(0,255,255,0.4);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0,255,255,0.25);
+}
+
+/* Grid ефект върху картата */
+.space-map .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* Точка на кораба */
+.ship-dot {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    width: 10px;
+    height: 10px;
+    background: #00ff9d;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px #00ff9d;
+    z-index: 2;
+}
+
+/* Сканиращ кръг */
+.scan-circle {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0,255,255,0.7);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: scan 2.5s infinite;
+}
+
+/* Анимация на сканиране */
+@keyframes scan {
+    0%   { width: 20px; height: 20px; opacity: 1; }
+    100% { width: 200px; height: 200px; opacity: 0; }
+}
+
+/* ======================== */
+/*        LED STATUS        */
+/* ======================== */
+/* Ред с LED индикатор */
+.led-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Общ стил за LED */
+.led {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px currentColor;
+}
+
+/* Цветове на LED */
+.led.green  { background: #00ff9d; }
+.led.yellow { background: #ffe066; }
+.led.red    { background: #ff4d4d; }
+
+/* ======================== */
+/*        RESPONSIVE        */
+/* ======================== */
+@media (max-width: 768px) {
+
+    .navbar-links { display: none; }
+    .navbar-toggle { display: block; }
+
+    .navbar-logo img {
+        width: 55px;
+        height: auto;
+    }
+
+    .systems-row {
+        flex-direction: column;
+        gap: 40px;
+        padding: 30px 16px;
+    }
+
+    .system-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
